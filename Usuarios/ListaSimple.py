@@ -189,7 +189,7 @@ class ListaSimple:
                 archivo.write("\t\t<contrasena>" + str(aux.ObtenerContrasenia()) + "</contrasena>\n")
                 archivo.write("\t</usuario>\n")
                 aux = aux.siguiente
-            archivo.write("</usuario>")
+            archivo.write("</usuarios>")
             archivo.close()      
 
                     

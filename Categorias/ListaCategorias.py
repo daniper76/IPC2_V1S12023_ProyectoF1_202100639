@@ -177,5 +177,14 @@ class ListaCategorias:
         while aux is not None:
             texto=texto+"\t<categoria>\n"
             texto=texto+"\t\t<nombre>"+str(aux.ObtenerNombre())+"</nombre>\n"
-            
+            texto=texto+aux.ObtenerListaPeliculas().EscribirXML()
+            texto=texto+"\t</categoria>\n"
+            aux=aux.siguiente
+        texto=texto+"</categorias>\n"
+        archivo = open("Categorias.xml", "w")
+        archivo.write(texto)
+        archivo.close()
+
+
+
             

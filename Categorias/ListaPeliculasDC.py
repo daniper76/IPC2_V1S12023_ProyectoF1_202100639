@@ -158,10 +158,9 @@ class ListaDobleCircular:
             if aux==self.primero:
                 return None
 
-    def EscribirXML(self,texto):
+    def EscribirXML(self):
         aux=self.primero
-        texto_peli=texto
-        texto_peli=texto_peli+"\t\t<peliculas>\n"
+        texto_peli="\t\t<peliculas>\n"
         while True:
             texto_peli=texto_peli+"\t\t\t<pelicula>\n"
             texto_peli=texto_peli+"\t\t\t\t<titulo>"+str(aux.ObtenerTitulo())+"</titulo>\n"
@@ -172,6 +171,7 @@ class ListaDobleCircular:
             texto_peli=texto_peli+"\t\t\t</pelicula>\n"
             aux=aux.siguiente
             if aux==self.primero:
+                texto_peli=texto_peli+"\t\t</peliculas>\n"
                 return texto_peli
 
 

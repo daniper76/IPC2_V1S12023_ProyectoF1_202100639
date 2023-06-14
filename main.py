@@ -352,6 +352,8 @@ while flag:
                             
                 elif opcion_admin=='5':
                     usuarios.escribirXML()
+                    categorias.escribirXML()
+                    salas.escribirXML()
 
                 elif opcion_admin=='6':
                     flag_admin=False  
