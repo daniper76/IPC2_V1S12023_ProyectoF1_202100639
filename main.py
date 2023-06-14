@@ -80,38 +80,48 @@ while flag:
                             while flag_compra:
                                 categorias.MostrarCarteleraCompleta()
                                 print("")
+                                print("A continuación se muestran la cartelera: \n")
                                 ver_pelicula=input("Ingrese el título de la Película: ")
                                 print("")
-                                print("Se muestra el detalle de la pelicula seleccionada: \n")
-                                categorias.MostrarDetallePelicula(ver_pelicula)
-                                print("")
-                                print("A continuación se el detalle de las salas disponibles: \n")
-                                salas.MostrarSalas()
-                                print("")
-                                eleccion_sala=input("Ingresar el número de sala : ")
-                                existe_sala=salas.ExisteSala(eleccion_sala)
-                                if existe_sala:
-                                    print("--------Detalle de Sala-------")
-                                    salas.MostrarDetalleSala(eleccion_sala)
+                                existe_pelicula=categorias.ExistePelicula(ver_pelicula)
+
+                                if existe_pelicula==True:
+                                    print("Se muestra el detalle de la pelicula seleccionada: \n")
+                                    categorias.MostrarDetallePelicula(ver_pelicula)
                                     print("")
-                                    print("El precio de cada boleto es de Q75.00\n")
-                                    cantidad=input("Ingresar la cantidad de boletos que desea: ")
-                                    precio=int(cantidad)*75
-                                    print("El monto total es de: "+str(precio))
-                                    id=0
-                                    lista_asientos=[]
-                                    while int(id)<int(cantidad):
-                                        no_asiento=input("Ingrese el número del Asiento: ")
-                                        lista_asientos.append(no_asiento)
-                                        id+=1
-                                    nombre_compra=input("Ingrese a nombre de quien se girará la factura: ")
-                                    direccion=input("Ingrese su dirección: ")
-                                    nit=input("Ingrese su NIT: ")
-                                    factura=Factura(nombre_compra,direccion,nit,precio,cantidad,lista_asientos,eleccion_sala)
-                                    usuarios.GuardarFactura(correo_guardado,factura)
+                                    flag_sala_correcta=True
+                                    while flag_sala_correcta:
+                                        print("A continuación se muestra detalle de las salas disponibles: \n")
+                                        salas.MostrarSalas()
+                                        print("")
+                                        eleccion_sala=input("Ingresar el número de sala : ")
+                                        existe_sala=salas.ExisteSala(eleccion_sala)
+                                        if existe_sala:
+                                            print("--------Detalle de Sala-------")
+                                            salas.MostrarDetalleSala(eleccion_sala)
+                                            print("")
+                                            print("El precio de cada boleto es de Q75.00\n")
+                                            cantidad=input("Ingresar la cantidad de boletos que desea: ")
+                                            precio=int(cantidad)*75
+                                            print("El monto total es de: "+str(precio))
+                                            id=0
+                                            lista_asientos=[]
+                                            while int(id)<int(cantidad):
+                                                no_asiento=input("Ingrese el número del Asiento: ")
+                                                lista_asientos.append(no_asiento)
+                                                id+=1
+                                            nombre_compra=input("Ingrese a nombre de quien se girará la factura: ")
+                                            direccion=input("Ingrese su dirección: ")
+                                            nit=input("Ingrese su NIT: ")
+                                            factura=Factura(nombre_compra,direccion,nit,precio,cantidad,lista_asientos,eleccion_sala)
+                                            usuarios.GuardarFactura(correo_guardado,factura)
+                                            flag_sala_correcta=False
+                                            flag_compra=False
+
+                                        else:
+                                            print("La sala no existe, ingresar una sala correcta")
                                 else:
-                                    flag_compra=False
-                                    print("No existe la sala")
+                                    print("No existe la pelicula, ingresar una de cartelera\n")
 
                         elif opcion_compra=="2":
                             flag_factura=False
@@ -376,8 +386,27 @@ while flag:
             usuarios.InsertarUsuario(nombre,apellido,telefono,correo,contrasenia)
 
     elif eleccion=='3':
-        categorias.MostrarCategoriasPeliculas()
-
+        flag_ver_peli=True
+        while flag_ver_peli:
+            print("---------------Menú Visualizar Películas---------------\n")
+            print("1-.Ver Listado General")
+            print("2-.Ver Listado de Películas por Categorías")
+            print("3-.Ver Detalle de Película")
+            print("4-.Salir\n")
+            opcion_ver=input("Ingrese el número de la opción que desea realizar\n")
+            if opcion_ver=="1":
+                categorias.MostrarCarteleraCompleta()
+            
+            elif opcion_ver=="2":
+                categoria_ver=input("Ingresar la categoría de películas que desea ver: ")
+                print("")
+                categorias.MostrarCartelera(categoria_ver)
+                print("")
+            elif opcion_ver=="3":
+                pelicula_ver=input("Ingrese el título de la película que desea ver: ")
+                print("")
+                categorias.MostrarDetallePelicula(pelicula_ver)
+                print("")
     elif eleccion=='4':
         flag=False
 
