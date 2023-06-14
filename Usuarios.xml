@@ -1,0 +1,18 @@
+<usuarios>
+	<usuario>
+		<rol>Administrador</rol>
+		<nombre>Daniel</nombre>
+		<apellido>Peuch</apellido>
+		<telefono>37324046</telefono>
+		<correo>danper76@ipc2.com</correo>
+		<contrasena>password</contrasena>
+	</usuario>
+	<usuario>
+		<rol>admin</rol>
+		<nombre>djfjlsdsd</nombre>
+		<apellido>ddddd</apellido>
+		<telefono>sdfafds</telefono>
+		<correo>fdasfsdf</correo>
+		<contrasena>fsdffdasfs</contrasena>
+	</usuario>
+</usuario>
