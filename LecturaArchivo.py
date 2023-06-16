@@ -57,7 +57,9 @@ def LecturaCategorias(archivo,lista_categorias: ListaCategorias):
                     anio_peli=str(anio[0].firstChild.nodeValue)
                     fecha_peli=str(fecha[0].firstChild.nodeValue)
                     hora_peli=str(hora[0].firstChild.nodeValue)
-                    lista_categorias.BuscarListaPeliculas(id).InsertarPelicula(titulo_peli,director_peli,anio_peli,fecha_peli,hora_peli)
+                    existe_peli=lista_categorias.ExistePelicula(titulo_peli)
+                    if existe_peli==False:
+                        lista_categorias.BuscarListaPeliculas(id).InsertarPelicula(titulo_peli,director_peli,anio_peli,fecha_peli,hora_peli)
 
             id+=1
 
@@ -78,7 +80,9 @@ def LectuuraSalas(archivo,lista_salas: ListaDoble):
                     asientos=sala.getElementsByTagName("asientos")
                     numero_sala=str(numero[0].firstChild.nodeValue)
                     asientos_sala=str(asientos[0].firstChild.nodeValue)
-                    lista_salas.InsertarSala(numero_sala,asientos_sala)
+                    existe_sala=lista_salas.ExisteSala(numero_sala)
+                    if existe_sala==False:
+                        lista_salas.InsertarSala(numero_sala,asientos_sala)
     
 
 

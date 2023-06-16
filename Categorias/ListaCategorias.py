@@ -26,9 +26,9 @@ class ListaCategorias:
         
     def MostrarCategorias(self):
         aux=self.primero
-        print("-----------Categorías------------")
+        print("-----------Categorías------------\n")
         while aux is not None:
-            print(str(aux.ObtenerId())+'.-'+aux.ObtenerNombre())
+            print("\t*"+str(aux.ObtenerNombre()))
             aux=aux.siguiente
             
     
@@ -184,6 +184,14 @@ class ListaCategorias:
         archivo = open("Categorias.xml", "w")
         archivo.write(texto)
         archivo.close()
+
+    def HayCategoria(self,nombre):
+        aux=self.primero
+        while aux is not None:
+            if aux.ObtenerNombre()==nombre:
+                return True
+            aux=aux.siguiente
+        return False
 
 
 

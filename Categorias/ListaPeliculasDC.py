@@ -26,11 +26,13 @@ class ListaDobleCircular:
         aux=self.primero
 
         while True:
+            print("------------------------------------------------------")
             print("\tTítulo de la Pelicula: "+aux.ObtenerTitulo())
-            print("\tPelicula dirigida por: "+aux.ObtenerDirector())
-            print("\tEl año del estreno de la Película es: "+aux.ObtenerAnio())
-            print("\tFecha de la Función: "+aux.ObtenerFecha())
-            print("\tHora de la Función"+aux.ObtenerHora())
+            print("\t\tPelicula dirigida por: "+aux.ObtenerDirector())
+            print("\t\tEl año del estreno de la Película es: "+aux.ObtenerAnio())
+            print("\t\tFecha de la Función: "+aux.ObtenerFecha())
+            print("\t\tHora de la Función"+aux.ObtenerHora())
+            print("-------------------------------------------------------------")
             aux=aux.siguiente
             if aux==self.primero:
                 break
@@ -71,7 +73,7 @@ class ListaDobleCircular:
                 aux = aux.siguiente
                 if aux==self.primero:
                     break
-            print("Pelicula NO encontrada")
+            
 
     def ModificarDirector(self,titulo,director):
         aux=self.primero

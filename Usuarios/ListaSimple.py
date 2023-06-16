@@ -167,7 +167,7 @@ class ListaSimple:
                     print("\tCantidad de Boletos: "+str(factura.cantidad_boletos))
                     total_asientos=factura.asientos
                     for asiento in total_asientos:
-                        print("Asiento: "+str(asiento))
+                        print("\t\tAsiento: "+str(asiento))
                     print("\tSala: "+str(factura.sala))
             aux=aux.siguiente  
 
@@ -195,7 +195,12 @@ class ListaSimple:
                     
                 
 
-            
+    def MostrarCorreosUsuarios(self):
+        aux=self.primero
+        print('-----Correos Registrados-------')
+        while aux is not None:
+            print('\t***'+str(aux.ObtenerCorreo()))
+            aux=aux.siguiente            
 
 
             

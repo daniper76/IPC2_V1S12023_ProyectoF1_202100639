@@ -89,15 +89,20 @@ class ListaDoble:
             while aux is not None:
                 archivo.write("\t\t\t<sala>\n")
                 archivo.write("\t\t\t\t<numero>" + str(aux.ObtenerNumero()) + "</numero>\n")
-                archivo.write("\t\t\t\t<asiento>" + str(aux.ObtenerAsientos()) + "</asiento>\n")
+                archivo.write("\t\t\t\t<asientos>" + str(aux.ObtenerAsientos()) + "</asientos>\n")
                 archivo.write("\t\t\t</sala>\n")
                 aux = aux.siguiente
-            archivo.write("\t\t<salas>\n")
-            archivo.write("\t<cine>\n")
+            archivo.write("\t\t</salas>\n")
+            archivo.write("\t</cine>\n")
             archivo.write("</cines>")
             archivo.close()      
 
-
+    def MostrarNumeroSalas(self):
+        aux=self.primero
+        print("********Salas de Cine:*********\n")
+        while aux is not None:
+            print("\t*"+str(aux.ObtenerNumero()))
+            aux=aux.siguiente
 
 
 
